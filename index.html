@@ -562,6 +562,25 @@
           <p><a href="https://www.linkedin.com/in/sami-hussein-hamed/">LinkedIn</a></p>
         </div>
       </div>
+      <div class="form-container color-container">
+        <h2 class="experience-sub-title project-title">Leave a Message</h2>
+        <form name="submit-to-google-sheet" id="contactForm">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email (optional)">
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" class="form-control" rows="5" placeholder="Enter your message"></textarea>
+          </div>
+          <div class="btn-container">
+            <button type="submit" class="btn btn-color-2 project-btn">Submit</button>
+          </div>
+        </form>
+        <span id="msg"></span>
+      </div>
+      
+      
     </section>
     <footer>
       <nav>
@@ -578,13 +597,22 @@
     </footer>
     <script src="script.js"></script>
     <script>
-      // Load particles.js configuration from external file
-      fetch('./particlejs-config.json')
-        .then(response => response.json())
-        .then(config => {
-          particlesJS("particles-js", config);
-        })
-        .catch(error => console.error('Error loading particles.js configuration:', error));
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwAeEumjrfIl4ecpAxGkHSLFFmRQmo3GEB0SEONLnn_UBOiIOrdASZfrjJdVusvNZqkUQ/exec'
+      const form = document.forms['submit-to-google-sheet']
+      
+      const msg = document.getElementById("msg");
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => {
+        msg.innerHTML = "Message Sent!";
+        setTimeout(function() {
+          msg.innerHTML = "";
+        }, 5000);
+        form.reset();
+      })
+      .catch(error => console.error('Error!', error.message));
+  });
     </script>
   </body>
 </html>
