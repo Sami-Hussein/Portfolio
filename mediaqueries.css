@@ -10,6 +10,13 @@
   #projects {
     height: fit-content;
   }
+  .section__pic-container {
+    width: 300px;
+    height: 300px;
+    padding-left: 30px;
+    margin: auto;
+  }
+  
 }
 
 @media screen and (max-width: 1200px) {
@@ -40,11 +47,17 @@
   .section__pic-container {
     width: 275px;
     height: 275px;
-    margin: 0 auto 2rem;
+    padding-left: 30px;
+    margin: auto;
   }
   .about-containers {
     margin-top: 0;
   }
+  #themeToggle {
+    min-width: 40px;
+    min-height: 40px;
+  }
+  
 }
 
 @media screen and (max-width: 600px) {
@@ -62,6 +75,11 @@
   footer nav {
     height: fit-content;
     margin-bottom: 2rem;
+  }
+  footer p {
+    text-align: center;
+    margin-top: 15rem;
+
   }
   .about-containers,
   .contact-info-upper-container,
@@ -100,4 +118,13 @@
   .text-container {
     text-align: justify;
   }
+  .form-container {
+    margin:auto;
+    width: 275px; /* Adjust width as needed */
+
+  }
+  
+  
+
+  
 }
