@@ -125,7 +125,7 @@ function openPDF(pdfFileName) {
 
 // darkmode toggle
 const btn = document.getElementById("themeToggle");
-//const btn2 = document.getElementById("themeToggle2");
+const btn2 = document.getElementById("themeToggle2");
 const themeIcons = document.querySelectorAll(".icon");
 const keyboardImage = document.querySelector(".about-pic");
 const currentTheme = localStorage.getItem("theme");
@@ -137,9 +137,9 @@ btn.addEventListener("click", function () {
   setTheme();
 });
 
-// btn2.addEventListener("click", function () {
-//   setTheme();
-// });
+btn2.addEventListener("click", function () {
+  setTheme();
+});
 
 
 function setTheme(){
